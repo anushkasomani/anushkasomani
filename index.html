@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="MYPROJECT.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.0.1/remixicon.css"
+    />
+</head>
+<body>
+    <header class="header" id="header">
+        <nav class="nav container">
+          <a href="#" class="nav__logo">
+             <img
+              src="C:\Users\soman\OneDrive\Desktop\OfficialLogoedited.jpg"
+              alt="PixelQuest Logo" class="as"
+              width="70px"
+              height="50px"
+            /> 
+          </a>
+  
+          <div class="nav__menu" id="nav__menu">
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="#" class="nav__link">Home</a>
+              </li>
+  
+              <li class="nav__item">
+                <a href="#" class="nav__link">About</a>
+              </li>
+  
+              <li class="nav__item">
+                <a href="#" class="nav__link">Explore</a>
+              </li>
+  
+              <li class="nav__item">
+                <a href="creators.html" class="nav__link">Creators</a>
+              </li>
+  
+              <li class="nav__item">
+                <a href="about NFTs.html" class="nav__link">Collections</a>
+              </li>
+  
+              <li class="nav__item">
+                <a href="#" class="nav__link">Blog</a>
+              </li>
+  
+              <li class="nav__item">
+                <a href="#" class="nav__link">Contact</a>
+              </li>
+            </ul>
+            <div class="nav__close" id="nav__close">
+              <i class="ri-close-line"></i>
+            </div>
+          </div>
+  
+          <div class="nav__actions">
+            <i class="ri-search-line nav__search" id="search-btn"></i>
+  
+            <i class="ri-user-line nav__login" id="login-btn"></i>
+  
+            <div class="nav__toggle" id="nav__toggle">
+              <i class="ri-menu-line"></i>
+            </div>
+          </div>
+        </nav>
+      </header>
+  
+      <div class="search" id="search">
+        <form action="" class="search__form">
+          <i class="ri-search-line search__icon"></i>
+          <input type="search" placeholder="Search..." class="search__input" />
+        </form>
+  
+        <i class="ri-close-line search__close" id="search-close"></i>
+      </div>
+  
+      <div class="login" id="login">
+        <form id="login__form" class="login__form">
+          <h2 class="login__title">Log In</h2>
+  
+          <div class="login__group">
+            <div>
+           <label for="email" class="login__label">Email</label>
+           <input type="email" placeholder="Write Your Email" id="email" class="login__input">
+            </div>
+  
+            <div>
+              <label for="password" class="login__label">Password</label>
+              <input type="password" placeholder="Enter Your Password" id="password" class="login__input">
+          
+               </div>
+               </div>
+  
+              <div>
+                <p class="login__signup">
+                  Do not have an account? <a href="signup.html">Sign Up</a>
+  
+                </p>
+  
+                <a href="#" class="login__forgot">
+                  You forgot your password
+                </a>
+                <button type="submit" class="login__button" >Log In</button>
+              </div>
+  
+         
+        </form>
+       <i class="ri-close-line login__close" id="login-close"></i>
+      </div>
+  
+  
+      <main class="main">
+        <img src="" alt="" class="main__bg" />
+      </main>
+  
+     <div class="homepage"> <h1 class="homepage_text">
+  
+  
+    Dive into the pixelated revolution: our NFT Marketplace</h1>
+  
+  <div class="xyz">
+    <img class="NFTimage"
+    src="C:\Users\soman\Downloads\Untitled design (1).jpg" ></div>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="main1.js"></script>
+    <script src="pixelquest.js"></script>
+    
+    
+
+     <script type="module">
+         // Import the functions you need from the SDKs you need
+         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+         import { getDatabase, update, ref } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+         import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+ 
+         // Your web app's Firebase configuration
+         const firebaseConfig = {
+             apiKey: "AIzaSyD6ZQnZZ6jjEPKeBIA-IPqGuJxQ0rSY1JE",
+             authDomain: "pixel-quest-auth.firebaseapp.com",
+             databaseURL: "https://pixel-quest-auth-default-rtdb.firebaseio.com",
+             projectId: "pixel-quest-auth",
+             storageBucket: "pixel-quest-auth.appspot.com",
+             messagingSenderId: "895959964522",
+             appId: "1:895959964522:web:c02f7eb05714e4b1c06313"
+         };
+ 
+         // Initialize Firebase
+         const app = initializeApp(firebaseConfig);
+         const database = getDatabase(app);
+         const auth = getAuth();
+ 
+         document.getElementById('login__form').addEventListener("submit", (event) => {
+             event.preventDefault();
+             // Handle the login logic here
+             const email = document.getElementById("email").value;
+             const password = document.getElementById("password").value;
+             signInWithEmailAndPassword(auth, email, password)
+                 .then((userCredential) => {
+                     // Signed in 
+                     const dt = new Date();
+                     const user = userCredential.user;
+                     update(ref(database, 'users/' + user.uid), {
+                         last_login: dt,
+                     });
+ 
+                     // Alert user and redirect after successful login
+                     // alert('Logged In');
+                     // Redirect the user to another webpage after successful login
+                      window.location.href = "MYPROJECT.html";
+                 })
+                 .catch((error) => {
+                     const errorCode = error.code;
+                     const errorMessage = error.message;
+                     console.error('Error during login:', errorCode, errorMessage);
+                     // Handle login error
+                 });
+         });
+     </script>
+
+    
+</body>
+</html>

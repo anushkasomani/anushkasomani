@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="MYPROJECT.css"/>
+</head>
+<body style="background-color: aliceblue;">
+
+    <div>
+        <h1 style="text-align: center; margin: 70px; font-size: 46px;">
+            Sign-Up to Pixel Quest
+        </h1> <br/><br/>
+        <div class="form_signup" style="width: auto; text-align: center; border: 1px solid gray; border-radius: 1.5rem; margin-inline: auto;">
+            <form id="form_signup">
+                <div style="display:grid;">
+                    <div style="display:grid;">
+                        <label for="username" class="login_label" style="margin-bottom: 1rem; margin-top: 10px;">Username</label>
+                        <input type="username" placeholder="Write Your Username" id="username" class="login_input" style="width: 50%; padding: .7rem;" >
+                    </div>
+                    <div style="display:grid;">
+                        <label for="email" class="login_label" style="margin-bottom: 1rem; margin-top: 10px;">Email</label>
+                        <input type="email" placeholder="Write Your Email" id="email" class="login_input" style="width: 50%; padding: .7rem;" >
+                    </div>
+                    <div style="display: grid;">
+                        <label for="password" class="login_label" style="margin-bottom: 1rem;">Password</label>
+                        <input type="password" placeholder="Enter Your Password" id="password" class="login_input" style="width: 50%; padding: 0.7rem;">
+                    </div>
+                    <div>
+                        <button type="submit" class="login__button" style="background-color: hsla(230, 75%, 32%, .8); width: 70%;">Sign Up</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="pixelquest.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyD6ZQnZZ6jjEPKeBIA-IPqGuJxQ0rSY1JE",
+            authDomain: "pixel-quest-auth.firebaseapp.com",
+            databaseURL: "https://pixel-quest-auth-default-rtdb.firebaseio.com",
+            projectId: "pixel-quest-auth",
+            storageBucket: "pixel-quest-auth.appspot.com",
+            messagingSenderId: "895959964522",
+            appId: "1:895959964522:web:c02f7eb05714e4b1c06313"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        const auth = getAuth();
+
+        document.getElementById('form_signup').addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            // Get user input
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const username = document.getElementById("username").value;
+
+            // Sign up the user
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // User signed up successfully
+                    const user = userCredential.user;
+
+                    // Save user data to the database
+                    set(ref(database, 'users/' + user.uid), {
+                        username: username,
+                        email: email
+                    })
+                     alert('User Created');
+                     
+                })
+                .catch((error) => {
+                    // Handle errors
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.error('Error creating user:', errorCode, errorMessage);
+                    alert('Error creating user');
+                });
+        });
+    </script>
+</body>
+</html>
