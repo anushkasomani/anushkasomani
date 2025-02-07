@@ -1,3 +1,2 @@
-IIT Dhanbad || Mathematics and Computing 
-Blockchain Developer
+IIT Dhanbad || Mathematics and Computing || Blockchain Developer
 
