@@ -1,4 +1,4 @@
-<h1 align="center">Hi 👋, I'm Anushka Somani</h1>
+<h1 align="center">Hi, I'm Anushka Somani</h1>
 <h3 align="center">Blockchain Developer, Full Stack DApp Developer, Open Source Contributor</h3>
 <h3 align="center">Solidity, Nextjs, Reactjs, TypeScript, IPFS</h3>
 
