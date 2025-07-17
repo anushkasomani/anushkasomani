@@ -3,7 +3,7 @@
 <h3 align="center">Solidity, Nextjs, Reactjs, TypeScript, IPFS</h3>
 
 - 🌱 I’m currently learning **Ethereum Core Protocol, Rust, TyperScript**
-- 🏆 Winner **Agentic Ethereum 2025** [Clash Of Clout](https://github.com/juSt-jeLLy/Clash-of-Clout) || Winner **Surreal World Assets Buildathon** [Vocalip](https://github.com/makimakiver/vocalip)
+- 🏆 Winner **Agentic Ethereum 2025** @[Clash Of Clout](https://github.com/juSt-jeLLy/Clash-of-Clout) || Winner **Surreal World Assets Buildathon** @[Vocalip](https://github.com/makimakiver/vocalip)
 
 
 <h3 align="left">Connect with me:</h3>
