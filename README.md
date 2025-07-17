@@ -2,7 +2,7 @@
 <h3 align="center">Blockchain Developer, Full Stack DApp Developer, Open Source Contributor</h3>
 
 - 🌱 I’m currently learning **Ethereum Core Protocol, Rust, TyperScript**
-- 🏆 Winner **Agentic Ethereum 2025** @[Clash Of Clout](https://github.com/juSt-jeLLy/Clash-of-Clout) || Winner **Surreal World Assets Buildathon** @[Vocalip](https://github.com/makimakiver/vocalip) || Winner **Chainlinl Chromion Hackathon** @[psiX](https://github.com/jamiebones/chainlink-hackathon)
+- 🏆 Winner **Agentic Ethereum** @[Clash Of Clout](https://github.com/juSt-jeLLy/Clash-of-Clout) ,**Surreal World Assets Buildathon** @[Vocalip](https://github.com/makimakiver/vocalip) ,**Chainlink Chromion Hackathon** @[psiX](https://github.com/jamiebones/chainlink-hackathon)
 
 
 <h3 align="left">Connect with me:</h3>
